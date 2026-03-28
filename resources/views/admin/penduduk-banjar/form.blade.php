@@ -5,7 +5,7 @@
 @section('content')
 <div class="mb-6">
     <h1 class="text-3xl font-bold text-gray-800">
-        {{ isset($item) ? 'Edit Penduduk Banjar' : 'Tambah Penduduk Banjar' }}
+        {{ isset($item) ? 'Edit Data Penduduk Banjar' : 'Tambah Data Penduduk Banjar' }}
     </h1>
 </div>
 
@@ -17,49 +17,23 @@
         @endif
 
         <div class="mb-4">
-            <label for="nama" class="block text-sm font-medium text-gray-700">Nama</label>
-            <input type="text" name="nama" id="nama" value="{{ old('nama', $item->nama ?? '') }}" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-            @error('nama')
+            <label for="jumlah_laki_laki" class="block text-sm font-medium text-gray-700">Jumlah Laki-laki</label>
+            <input type="number" name="jumlah_laki_laki" id="jumlah_laki_laki" value="{{ old('jumlah_laki_laki', $item->jumlah_laki_laki ?? '') }}" required min="0" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            @error('jumlah_laki_laki')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
 
         <div class="mb-4">
-            <label for="nik" class="block text-sm font-medium text-gray-700">NIK</label>
-            <input type="text" name="nik" id="nik" value="{{ old('nik', $item->nik ?? '') }}" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-            <p class="text-gray-500 text-sm mt-1">Nomor Identitas Kependudukan (16 digit)</p>
-            @error('nik')
+            <label for="jumlah_perempuan" class="block text-sm font-medium text-gray-700">Jumlah Perempuan</label>
+            <input type="number" name="jumlah_perempuan" id="jumlah_perempuan" value="{{ old('jumlah_perempuan', $item->jumlah_perempuan ?? '') }}" required min="0" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            @error('jumlah_perempuan')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="mb-4">
-            <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-            <input type="text" name="status" id="status" value="{{ old('status', $item->status ?? '') }}" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-            <p class="text-gray-500 text-sm mt-1">Contoh: Kepala Banjar, Bendahara, Anggota, dll</p>
-            @error('status')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-
-        <div class="mb-4">
-            <label for="jenis_kelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
-            <select name="jenis_kelamin" id="jenis_kelamin" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-                <option value="">-- Pilih Jenis Kelamin --</option>
-                <option value="Laki-laki" {{ old('jenis_kelamin', $item->jenis_kelamin ?? '') == 'Laki-laki' ? 'selected' : '' }}>Laki-laki</option>
-                <option value="Perempuan" {{ old('jenis_kelamin', $item->jenis_kelamin ?? '') == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
-            </select>
-            @error('jenis_kelamin')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-
-        <div class="mb-4">
-            <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
-            <textarea name="alamat" id="alamat" rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">{{ old('alamat', $item->alamat ?? '') }}</textarea>
-            @error('alamat')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
+        <div class="bg-blue-50 border border-blue-200 rounded p-4 mb-4">
+            <p class="text-sm text-blue-800"><strong>Total Penduduk:</strong> <span id="total">0</span> orang</p>
         </div>
 
         <div class="flex space-x-2">
@@ -68,4 +42,16 @@
         </div>
     </form>
 </div>
+
+<script>
+    function updateTotal() {
+        const lakiLaki = parseInt(document.getElementById('jumlah_laki_laki').value) || 0;
+        const perempuan = parseInt(document.getElementById('jumlah_perempuan').value) || 0;
+        document.getElementById('total').textContent = lakiLaki + perempuan;
+    }
+
+    document.getElementById('jumlah_laki_laki').addEventListener('input', updateTotal);
+    document.getElementById('jumlah_perempuan').addEventListener('input', updateTotal);
+    updateTotal();
+</script>
 @endsection

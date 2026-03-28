@@ -10,6 +10,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\AwigRuleController;
 use App\Http\Controllers\AwigFileController;
 use App\Http\Controllers\PendudukBanjarController;
+use App\Http\Controllers\LayananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,4 @@ Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/awig-rules', [AwigRuleController::class, 'index']);
 Route::get('/awig-file', [AwigFileController::class, 'index']);
 Route::get('/penduduk-banjar', [PendudukBanjarController::class, 'index']);
+Route::get('/layanan', [LayananController::class, 'index']);

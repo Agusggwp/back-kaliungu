@@ -10,5 +10,5 @@ class PendudukBanjar extends Model
     use HasFactory;
 
     protected $table = 'penduduk_banjar';
-    protected $fillable = ['nama', 'nik', 'status', 'alamat', 'jenis_kelamin'];
+    protected $fillable = ['jumlah_laki_laki', 'jumlah_perempuan'];
 }

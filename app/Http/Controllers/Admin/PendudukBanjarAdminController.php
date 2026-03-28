@@ -22,15 +22,12 @@ class PendudukBanjarAdminController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string',
-            'nik' => 'required|string|unique:penduduk_banjar',
-            'status' => 'required|string',
-            'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
-            'alamat' => 'nullable|string',
+            'jumlah_laki_laki' => 'required|integer|min:0',
+            'jumlah_perempuan' => 'required|integer|min:0',
         ]);
 
         PendudukBanjar::create($validated);
-        return redirect()->route('admin.penduduk-banjar.index')->with('success', 'Penduduk berhasil ditambahkan');
+        return redirect()->route('admin.penduduk-banjar.index')->with('success', 'Data penduduk berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -44,15 +41,12 @@ class PendudukBanjarAdminController extends Controller
         $item = PendudukBanjar::findOrFail($id);
 
         $validated = $request->validate([
-            'nama' => 'required|string',
-            'nik' => 'required|string|unique:penduduk_banjar,nik,' . $id,
-            'status' => 'required|string',
-            'jenis_kelamin' => 'nullable|in:Laki-laki,Perempuan',
-            'alamat' => 'nullable|string',
+            'jumlah_laki_laki' => 'required|integer|min:0',
+            'jumlah_perempuan' => 'required|integer|min:0',
         ]);
 
         $item->update($validated);
-        return redirect()->route('admin.penduduk-banjar.index')->with('success', 'Penduduk berhasil diubah');
+        return redirect()->route('admin.penduduk-banjar.index')->with('success', 'Data penduduk berhasil diubah');
     }
 
     public function destroy($id)

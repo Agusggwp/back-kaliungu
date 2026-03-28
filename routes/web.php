@@ -12,16 +12,15 @@ use App\Http\Controllers\Admin\KategoriAdminController;
 use App\Http\Controllers\Admin\AwigRuleAdminController;
 use App\Http\Controllers\Admin\AwigFileAdminController;
 use App\Http\Controllers\Admin\PendudukBanjarAdminController;
+use App\Http\Controllers\Admin\LayananAdminController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 // Auth Routes
 Route::get('/login', [AuthWebController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthWebController::class, 'login']);
-Route::get('/register', [AuthWebController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthWebController::class, 'register']);
 Route::post('/logout', [AuthWebController::class, 'logout'])->name('logout');
 
 // Admin Routes
@@ -54,5 +53,8 @@ Route::middleware('auth', 'admin')->prefix('admin')->name('admin.')->group(funct
 
     // Penduduk Banjar
     Route::resource('penduduk-banjar', PendudukBanjarAdminController::class)->names('penduduk-banjar');
+
+    // Layanan
+    Route::resource('layanan', LayananAdminController::class)->names('layanan');
 });
 
