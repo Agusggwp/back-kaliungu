@@ -5,14 +5,17 @@
 @section('content')
 <div class="space-y-4 md:space-y-6">
     <!-- Header -->
-    <div class="bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-lg md:rounded-2xl shadow-lg p-4 sm:p-6 text-white">
+    <div class="bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg md:rounded-2xl shadow-lg p-4 sm:p-6 text-white">
         <div class="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-4">
             <div>
-                <h1 class="text-2xl sm:text-3xl font-bold flex items-center gap-2">🏢 Profil Banjar</h1>
-                <p class="text-emerald-100 mt-1 text-xs sm:text-sm md:text-base">Kelola profil resmi Banjar Kaliungu Kaja</p>
+                <h1 class="text-2xl sm:text-3xl font-bold flex items-center gap-2">
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    Profil Banjar
+                </h1>
+                <p class="text-orange-100 mt-1 text-xs sm:text-sm md:text-base">Kelola profil resmi Banjar Kaliungu Kaja</p>
             </div>
             <a href="{{ route('admin.profil.create') }}"
-                class="bg-white text-emerald-600 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold hover:bg-gray-100 transition flex items-center gap-2 whitespace-nowrap text-sm sm:text-base">
+                class="bg-white text-orange-600 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold hover:bg-gray-100 transition flex items-center gap-2 whitespace-nowrap text-sm sm:text-base">
                 ➕ Tambah Profil
             </a>
         </div>
@@ -24,7 +27,7 @@
         <div class="flex flex-col items-center gap-3">
             <span class="text-3xl sm:text-4xl">📭</span>
             <p class="text-sm md:text-base text-gray-500">Belum ada data profil</p>
-            <a href="{{ route('admin.profil.create') }}" class="mt-4 text-emerald-600 hover:text-emerald-800 font-medium text-sm md:text-base">Buat profil pertama →</a>
+            <a href="{{ route('admin.profil.create') }}" class="mt-4 text-orange-600 hover:text-orange-800 font-medium text-sm md:text-base">Buat profil pertama →</a>
         </div>
     </div>
 @else
@@ -41,18 +44,18 @@
     
     <div class="bg-white rounded-lg md:rounded-2xl shadow-lg overflow-hidden">
         <!-- Header -->
-        <div class="bg-gradient-to-r from-emerald-600 to-cyan-600 p-4 sm:p-6 md:p-8 text-white">
+        <div class="bg-gradient-to-r from-orange-600 to-orange-600 p-4 sm:p-6 md:p-8 text-white">
             <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                 <div>
                     <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2">{{ $item->nama }}</h2>
-                    <p class="text-emerald-100 text-xs sm:text-sm md:text-base">{{ $item->deskripsi }}</p>
+                    <p class="text-orange-100 text-xs sm:text-sm md:text-base">{{ $item->deskripsi }}</p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-2">
                     <a href="{{ route('admin.profil.edit', $item->id) }}" class="bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition text-center text-xs sm:text-sm">✏️ Edit</a>
                     <form action="{{ route('admin.profil.destroy', $item->id) }}" method="POST" class="w-full sm:w-auto">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition text-xs sm:text-sm" onclick="return confirm('Yakin ingin menghapus profil ini?')">🗑️ Hapus</button>
+                        <button type="submit" class="w-full bg-purple-500 hover:bg-purple-600 text-white px-3 sm:px-4 py-2 rounded-lg font-medium transition text-xs sm:text-sm" onclick="return confirm('Yakin ingin menghapus profil ini?')">🗑️ Hapus</button>
                     </form>
                 </div>
             </div>
@@ -70,13 +73,13 @@
                     <div class="bg-gray-50 p-3 sm:p-4 rounded-lg">
                         <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Telepon</p>
                         <p class="text-gray-900 mt-1 sm:mt-2 font-medium text-xs sm:text-sm md:text-base">
-                            <a href="tel:{{ $item->telepon }}" class="text-emerald-600 hover:text-emerald-800">{{ $item->telepon ?? '-' }}</a>
+                            <a href="tel:{{ $item->telepon }}" class="text-orange-600 hover:text-orange-800">{{ $item->telepon ?? '-' }}</a>
                         </p>
                     </div>
                     <div class="bg-gray-50 p-3 sm:p-4 rounded-lg md:col-span-2">
                         <p class="text-xs font-semibold text-gray-500 uppercase tracking-wide">Email</p>
                         <p class="text-gray-900 mt-1 sm:mt-2 font-medium text-xs sm:text-sm md:text-base">
-                            <a href="mailto:{{ $item->email }}" class="text-emerald-600 hover:text-emerald-800">{{ $item->email ?? '-' }}</a>
+                            <a href="mailto:{{ $item->email }}" class="text-orange-600 hover:text-orange-800">{{ $item->email ?? '-' }}</a>
                         </p>
                     </div>
                 </div>
@@ -139,3 +142,4 @@
 @endif
 </div>
 @endsection
+

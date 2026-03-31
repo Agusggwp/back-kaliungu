@@ -13,7 +13,7 @@
             <p class="text-center text-gray-600 mb-8">Daftar Akun</p>
 
             @if ($errors->any())
-                <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                <div class="mb-4 p-4 bg-purple-100 border border-purple-400 text-purple-700 rounded">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -29,7 +29,7 @@
                     <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
                     <input type="text" name="name" id="name" value="{{ old('name') }}" required autofocus class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                     @error('name')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-purple-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -37,7 +37,7 @@
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                     <input type="email" name="email" id="email" value="{{ old('email') }}" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                     @error('email')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-purple-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -45,7 +45,7 @@
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                     <input type="password" name="password" id="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
                     @error('password')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-purple-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -64,3 +64,4 @@
     </div>
 </body>
 </html>
+
