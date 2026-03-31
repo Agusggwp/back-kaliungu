@@ -3,4 +3,53 @@
 @theme {
   --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
+  
+  /* Custom Orange #ff7f00 */
+  --color-orange-50: #fff7ed;
+  --color-orange-100: #feedd5;
+  --color-orange-200: #fedcab;
+  --color-orange-300: #fdba74;
+  --color-orange-400: #fb923c;
+  --color-orange-500: #ff7f00;
+  --color-orange-600: #ea580c;
+  --color-orange-700: #c2410c;
+  --color-orange-800: #9a3412;
+  --color-orange-900: #7c2d12;
+  
+  /* Custom Purple #9d19fa */
+  --color-purple-50: #faf5ff;
+  --color-purple-100: #f3e8ff;
+  --color-purple-200: #e9d5ff;
+  --color-purple-300: #d8b4fe;
+  --color-purple-400: #c084fc;
+  --color-purple-500: #9d19fa;
+  --color-purple-600: #7e22ce;
+  --color-purple-700: #6d28d9;
+  --color-purple-800: #5b21b6;
+  --color-purple-900: #4c1d95;
+}
+
+/* Force override for orange and purple hex colors */
+:root {
+  --orange-50: #fff7ed;
+  --orange-100: #feedd5;
+  --orange-200: #fedcab;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #ff7f00;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+  --orange-900: #7c2d12;
+  
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-300: #d8b4fe;
+  --purple-400: #c084fc;
+  --purple-500: #9d19fa;
+  --purple-600: #7e22ce;
+  --purple-700: #6d28d9;
+  --purple-800: #5b21b6;
+  --purple-900: #4c1d95;
 }
