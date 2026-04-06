@@ -24,8 +24,8 @@
             <div class="hidden lg:flex flex-col justify-center items-start">
                 <!-- Logo/Icon -->
                 <div class="mb-8 md:mb-12 animate-float">
-                    <div class="w-24 sm:w-28 md:w-32 h-24 sm:h-28 md:h-32 bg-gradient-to-br from-purple-300 via-purple-400 to-purple-500 rounded-3xl flex items-center justify-center shadow-lg">
-                        <span class="text-4xl sm:text-5xl md:text-6xl">🏘️</span>
+                    <div class="w-32 sm:w-36 md:w-40 h-32 sm:h-36 md:w-40 bg-white rounded-full p-2 shadow-xl border-4 border-orange-500 flex items-center justify-center">
+                        <img src="{{ asset('images/logo.png') }}" alt="KALIKA Logo" class="w-28 sm:w-32 md:w-36 h-28 sm:h-32 md:h-36 object-contain">
                     </div>
                 </div>
                 
@@ -69,7 +69,9 @@
                         <!-- Mobile Logo (Hidden on desktop) -->
                         <div class="lg:hidden text-center mb-6 sm:mb-8">
                             <div class="flex justify-center mb-3">
-                                <span class="text-4xl sm:text-5xl">🏘️</span>
+                                <div class="w-20 sm:w-24 h-20 sm:h-24 bg-white border-4 border-orange-500 flex items-center justify-center shadow-lg">
+                                    <img src="{{ asset('images/logo.png') }}" alt="KALIKA Logo" class="w-16 sm:w-20 h-16 sm:h-20 object-contain">
+                                </div>
                             </div>
                             <h1 class="text-3xl sm:text-4xl font-black text-purple-900 mb-1">KALIKA</h1>
                             <p class="text-purple-700 text-xs sm:text-sm">Manajemen Informasi Banjar</p>

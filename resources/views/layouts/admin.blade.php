@@ -15,14 +15,16 @@
     <!-- Navigation -->
     <nav class="bg-gradient-to-r from-purple-700 to-purple-800 text-white shadow-lg sticky top-0 z-50 border-b border-purple-900">
         <div class="max-w-full mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-14 sm:h-16">
-                <div class="flex items-center gap-2 md:gap-3 min-w-0">
+            <div class="flex justify-between items-center h-20 sm:h-24 md:h-28">
+                <div class="flex items-center gap-3 md:gap-4 min-w-0">
                     <button id="sidebarToggle" class="md:hidden p-2 hover:bg-purple-800 rounded-lg transition">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
-                    <span class="text-lg md:text-2xl">🏘️</span>
+                    <div class="bg-white rounded-full p-1 shadow-lg border-4 border-orange-500">
+                        <img src="{{ asset('images/logo.png') }}" alt="KALIKA Logo" class="h-12 sm:h-14 md:h-16 w-12 sm:w-14 md:w-16 object-contain rounded-full" />
+                    </div>
                     <h1 class="text-lg md:text-xl font-bold truncate">KALIKA Admin</h1>
                 </div>
                 <div class="flex items-center gap-2 md:gap-4">
@@ -36,9 +38,9 @@
         </div>
     </nav>
 
-    <div class="flex h-[calc(100vh-56px)] sm:h-[calc(100vh-64px)] bg-gray-50 overflow-hidden">
+    <div class="flex h-[calc(100vh-80px)] sm:h-[calc(100vh-96px)] md:h-[calc(100vh-112px)] bg-gray-50 overflow-hidden">
         <!-- Sidebar -->
-        <div id="sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 bg-purple-700 border-r border-purple-800 overflow-y-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:top-14 sm:md:top-16 top-14 sm:top-16">
+        <div id="sidebar" class="fixed md:static inset-y-0 left-0 z-40 w-64 bg-purple-700 border-r border-purple-800 overflow-y-auto transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out top-20 sm:top-24 md:top-28">
             <div class="p-4 md:p-6">
                 <nav class="space-y-2 md:space-y-3">
                     <!-- Dashboard Link - PROMINENT -->
